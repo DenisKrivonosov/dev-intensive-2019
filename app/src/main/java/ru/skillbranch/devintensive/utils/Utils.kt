@@ -91,8 +91,8 @@ object Utils {
         return translatedPayload
     }
     fun toInitials(firstName:String?, lastName:String?):String?{
-        val firstLetter = if(firstName?.length==0) "" else firstName?.get(0)?.toUpperCase()?:""
-        val secondLetter = if(lastName?.length==0) "" else lastName?.get(0)?.toUpperCase()?:""
+        val firstLetter = if(firstName?.trim()?.length==0) "" else firstName?.get(0)?.toUpperCase()?:""
+        val secondLetter = if(lastName?.trim()?.length==0) "" else lastName?.get(0)?.toUpperCase()?:""
         var initials = if("$firstLetter$secondLetter"=="") null else{"$firstLetter$secondLetter"}
         return initials
     }

@@ -10,7 +10,7 @@ data class User (
     var avatar:String?,
     var rating:Int = 0,
     var respect:Int = 0,
-    val lastVisit:Date? = Date(),
+    var lastVisit:Date? = Date(),
     val isOnline:Boolean  =false
 )
 {
@@ -52,6 +52,7 @@ data class User (
 
     companion object Factory{
         private var lastId=-1
+        fun resetCounter(){lastId=-1}
         fun makeUser(fullName:String?):User{
             lastId++
             val (firstName, lastName) = Utils.parseFullName(fullName)
@@ -74,7 +75,7 @@ data class User (
          fun id(value:String)= apply { id=value }
          fun firstName(value:String)= apply { firstName = value }
          fun lastName(value:String)= apply { lastName = value }
-         fun avatar(value:String)= apply { avatar = value }
+         fun avatar(value:String?)= apply { avatar = value }
          fun rating(value:Int)= apply { rating = value }
          fun respect(value:Int)= apply { respect = value }
          fun lastVisit(value:Date?)= apply { lastVisit = value }
