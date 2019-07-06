@@ -9,3 +9,14 @@ fun String.truncate(length:Int=16):String{
         else->"${this.substring(0, length).trim()}..."
     }
 }
+fun String.stripHtml():String{
+    var tagsString = this
+        .replace(
+        "<.*?>".toRegex(),
+        ""
+        )
+        .replace("&.*?;".toRegex(),
+        "")
+        .replace("\\s+".toRegex(), " ")
+    return tagsString
+}
